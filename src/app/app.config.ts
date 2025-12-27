@@ -1,12 +1,20 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
-import { provideRouter } from '@angular/router';
+import {
+  ApplicationConfig,
+  provideZonelessChangeDetection,
+} from '@angular/core';
+import { provideHttpClient } from '@angular/common/http';
+import { provideStore } from '@ngrx/store';
 
-import { routes } from './app.routes';
+import { booksReducer } from './state/books.reducer';
+import { collectionReducer } from './state/collection.reducer';
 
 export const appConfig: ApplicationConfig = {
   providers: [
-    provideBrowserGlobalErrorListeners(),
-    provideZoneChangeDetection({ eventCoalescing: true }),
-    provideRouter(routes)
-  ]
+    provideZonelessChangeDetection(),
+    provideHttpClient(),
+    provideStore({
+      books: booksReducer,
+      collection: collectionReducer,
+    }),
+  ],
 };
