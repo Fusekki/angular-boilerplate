@@ -3,6 +3,7 @@ import { BooksActions } from './books.actions';
 
 export const initialState: ReadonlyArray<string> = [];
 
+// performs logic based on the action it got
 export const collectionReducer = createReducer(
   initialState,
   on(BooksActions.removeBook, (state, { bookId }) =>
