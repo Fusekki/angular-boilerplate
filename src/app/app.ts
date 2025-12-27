@@ -29,6 +29,7 @@ export class App implements OnInit {
   protected books = this.store.selectSignal(selectBooks);
   protected bookCollection = this.store.selectSignal(selectBookCollection);
 
+  // actions dispatch
   protected onAdd(bookId: string) {
     this.store.dispatch(BooksActions.addBook({ bookId }));
   }
