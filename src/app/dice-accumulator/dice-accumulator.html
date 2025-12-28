@@ -1,0 +1,18 @@
+<div class="bg-grey-800 flex items-center justify-center">
+  <div class="text-center mt-10">
+    <div class="mb-4">
+      <h1 class="text-2xl font-bold text-gray-100">Dice Accumulator App</h1>
+    </div>
+    <div id="total" class="text-4xl font-bold text-blue-500 mb-4">
+      {{total$ | async}}
+    </div>
+    <div class="flex justify-center space-x-4">
+      <button (click)="d100()" id="increment" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">d100</button>
+      <button (click)="d20()" id="increment" class="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded">d20</button>
+      <button (click)="d12()" id="multiply" class="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">d12</button>
+      <button (click)="d8()" id="decrement" class="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">d8</button>
+      <button (click)="d6()" id="divide" class="bg-purple-500 hover:bg-purple-700 text-white font-bold py-2 px-4 rounded">d6</button>
+      <button (click)="d4()" id="reset" class="bg-yellow-500 hover:bg-yellow-700 text-white font-bold py-2 px-4 rounded">d4</button>
+    </div>
+  </div>
+</div>

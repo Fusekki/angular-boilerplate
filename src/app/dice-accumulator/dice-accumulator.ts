@@ -1,0 +1,46 @@
+import { Component } from '@angular/core';
+import { AppState } from '../states/app.state';
+import { Observable } from 'rxjs';
+import { selectDiceTotal } from '../states/dice-total/dice-total.selector';
+import { Store } from '@ngrx/store';
+import { AsyncPipe } from '@angular/common';
+import { d100, d12, d20, d4, d6, d8 } from '../states/dice-total/dice-total.actions';
+
+@Component({
+  selector: 'app-dice-accumulator',
+  imports: [AsyncPipe],
+  templateUrl: './dice-accumulator.html',
+  styleUrl: './dice-accumulator.scss',
+})
+export class DiceAccumulator {
+  total$: Observable<number>;
+
+  constructor(private store: Store<AppState>) {
+    this.total$ = this.store.select(selectDiceTotal)
+  }
+
+  d100() {
+    this.store.dispatch(d100());
+  }
+
+  d20() {
+    this.store.dispatch(d20());
+  }
+
+  d12() {
+    this.store.dispatch(d12());
+  }
+
+  d8() {
+    this.store.dispatch(d8());
+  }
+
+  d6() {
+    this.store.dispatch(d6());
+  }
+
+  d4() {
+    this.store.dispatch(d4());
+  }
+
+}
