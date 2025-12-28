@@ -9,7 +9,7 @@ import { AsyncPipe } from '@angular/common';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet, Counter, AsyncPipe],
+  imports: [Counter, AsyncPipe],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
@@ -18,6 +18,6 @@ export class App {
   count$: Observable<number>;
 
   constructor(private store: Store<AppState>) {
-    this.count$ = this.store.select(selectCount)
+    this.count$ = this.store.select(selectCount);
   }
 }

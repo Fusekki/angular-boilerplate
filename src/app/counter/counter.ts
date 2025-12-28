@@ -4,7 +4,7 @@ import { AppState } from '../states/app.state';
 import { Store } from '@ngrx/store';
 import { selectCount } from '../states/counter/counter.selector';
 import { AsyncPipe } from '@angular/common';
-import { decrement, increment, reset } from '../states/counter/counter.actions';
+import { decrement, divide, increment, multiply, reset } from '../states/counter/counter.actions';
 
 @Component({
   selector: 'app-counter',
@@ -29,6 +29,14 @@ export class Counter {
 
   reset() {
     this.store.dispatch(reset())
+  }
+
+  multiply() {
+    this.store.dispatch(multiply())
+  }
+
+  divide() {
+    this.store.dispatch(divide())
   }
 
 }
