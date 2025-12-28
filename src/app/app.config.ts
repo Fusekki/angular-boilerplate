@@ -11,6 +11,7 @@ export const appConfig: ApplicationConfig = {
     provideZoneChangeDetection({ eventCoalescing: true }),
     provideRouter(routes),
     provideStore(),
-    provideState({ name: 'dice-total', reducer: diceTotalReducer })
+    // the name must match the name of the state variable
+    provideState({ name: 'total', reducer: diceTotalReducer })
 ]
 };
