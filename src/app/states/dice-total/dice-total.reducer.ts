@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { d100, d12, d20, d4, d6, d8 } from "./dice-total.actions";
+import { d100, d12, d20, d4, d6, d8, reset } from "./dice-total.actions";
 
 export interface DiceTotalState {
   total: number
@@ -52,5 +52,13 @@ export const diceTotalReducer = createReducer(
       total: state.total + newRandomNumber,
       lastRoll: newRandomNumber
     };
-  })
+  }),
+  on(reset, state => {
+    return {
+      ...state,
+      total: 0,
+      lastRoll: null
+    };
+  }),
+
 )
