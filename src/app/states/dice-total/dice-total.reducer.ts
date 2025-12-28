@@ -45,6 +45,14 @@ export const diceTotalReducer = createReducer(
       lastRoll: newRandomNumber
     };
   }),
+  on(d6, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 6) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  }),
   on(d4, state => {
     const newRandomNumber =  Math.floor(Math.random() * 4) + 1;
     return {
