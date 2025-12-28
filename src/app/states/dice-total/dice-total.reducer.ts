@@ -3,18 +3,54 @@ import { d100, d12, d20, d4, d6, d8 } from "./dice-total.actions";
 
 export interface DiceTotalState {
   total: number
+  lastRoll: number | null
 }
 
 export const initialDiceTotalState: DiceTotalState = {
-  total: 0
+  total: 0,
+  lastRoll: null
 }
 
 export const diceTotalReducer = createReducer(
   initialDiceTotalState,
-  on(d100, state => ({ ...state, total: state.total + Math.floor(Math.random() * 100) })),
-  on(d20, state => ({ ...state, total: state.total +  Math.floor(Math.random() * 20) })),
-  on(d12, state => ({ ...state, total: state.total +  Math.floor(Math.random() * 12) })),
-  on(d8, state => ({ ...state, total: state.total +  Math.floor(Math.random() * 8) })),
-  on(d6, state => ({ ...state, total: state.total +  Math.floor(Math.random() * 6) })),
-  on(d4, state => ({ ...state, total: state.total +  Math.floor(Math.random() * 4) }))
+  on(d100, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 100) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  }),
+  on(d20, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 20) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  }),
+  on(d12, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 12) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  }),
+  on(d8, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 8) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  }),
+  on(d4, state => {
+    const newRandomNumber =  Math.floor(Math.random() * 4) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    };
+  })
 )

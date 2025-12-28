@@ -6,18 +6,15 @@ import { Store } from '@ngrx/store';
 import { AppState } from './states/app.state';
 import { selectDiceTotal } from './states/dice-total/dice-total.selector';
 import { Observable } from 'rxjs';
+import { Layout } from "./core/components/layout/layout";
+import { Header } from './core/components/header/header';
 
 @Component({
   selector: 'app-root',
-  imports: [DiceAccumulator, RouterOutlet, AsyncPipe],
+  imports: [RouterOutlet, Layout, Header],
   templateUrl: './app.html',
   styleUrl: './app.scss'
 })
 export class App {
-  protected readonly title = signal('Boilerplate');
-  total$: Observable<number>;
-
-  constructor(private store: Store<AppState>) {
-    this.total$ = this.store.select(selectDiceTotal);
-  }
+  protected readonly title = signal('Dice Accumulator');
 }

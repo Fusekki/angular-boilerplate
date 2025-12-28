@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { AppState } from '../states/app.state';
 import { Observable } from 'rxjs';
-import { selectDiceTotal } from '../states/dice-total/dice-total.selector';
+import { selectDiceTotal, selectRandomNumber } from '../states/dice-total/dice-total.selector';
 import { Store } from '@ngrx/store';
 import { AsyncPipe } from '@angular/common';
 import { d100, d12, d20, d4, d6, d8 } from '../states/dice-total/dice-total.actions';
@@ -14,9 +14,11 @@ import { d100, d12, d20, d4, d6, d8 } from '../states/dice-total/dice-total.acti
 })
 export class DiceAccumulator {
   total$: Observable<number>;
+  lastRoll$: Observable<number | null>;
 
   constructor(private store: Store<AppState>) {
     this.total$ = this.store.select(selectDiceTotal)
+    this.lastRoll$ = this.store.select(selectRandomNumber)
   }
 
   d100() {

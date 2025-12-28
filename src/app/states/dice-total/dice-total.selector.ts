@@ -7,3 +7,8 @@ export const selectDiceTotal = createSelector(
   selectDiceTotalState,
   (state) => state.total
 )
+
+export const selectRandomNumber = createSelector(
+  selectDiceTotalState,
+  (state) => state.lastRoll
+)
