@@ -2,5 +2,6 @@
   <nav class="container mx-auto flex items-center justify-between">
     <a routerLink="/" class="text-xl font-bold tracking-tight">NgrxStore - Dice Accumulator</a>
         <button class="text-white">Total:  <span>{{total$ | async }} </span></button>
+        <button (click)="userLogout()">Logout</button>
   </nav>
 </div>

@@ -5,6 +5,8 @@ import { Observable } from 'rxjs';
 import { AppState } from '../../../states/app.state';
 import { selectDiceTotal } from '../../../states/dice-total/dice-total.selector';
 import { AsyncPipe } from '@angular/common';
+import { reset } from '../../../states/user/user.actions';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-header',
@@ -17,14 +19,20 @@ export class Header {
   protected readonly title = signal('Dice Accumulator');
   total$: Observable<number>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private router: Router) {
     this.total$ = this.store.select(selectDiceTotal);
   }
 
-  logout() {
-    console.log('logout clicked');
+  userLogout() {
+    // Clear NgRx user slice, localStorage, etc.
+    this.store.dispatch(reset()); // your own action
+
+    // Optional: disable auto-selection for GIS
+    const w = window as any;
+    if (w.google?.accounts?.id) {
+      w.google.accounts.id.disableAutoSelect();
+    }
+
+    this.router.navigate(['']);
   }
 }
-
-
-

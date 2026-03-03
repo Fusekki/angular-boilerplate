@@ -1,6 +1,5 @@
-import { ApplicationConfig, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
+import { ApplicationConfig, importProvidersFrom, provideBrowserGlobalErrorListeners, provideZoneChangeDetection } from '@angular/core';
 import { provideRouter } from '@angular/router';
-
 import { routes } from './app.routes';
 import { provideState, provideStore } from '@ngrx/store';
 import { diceTotalReducer } from './states/dice-total/dice-total.reducer';
@@ -15,6 +14,6 @@ export const appConfig: ApplicationConfig = {
     // the name must match the name of the state variable
     provideState({ name: 'total', reducer: diceTotalReducer }),
     provideState({ name: 'lastRoll', reducer: diceTotalReducer }),
-    provideClientHydration(withEventReplay())
-]
+    provideClientHydration(withEventReplay()),
+  ]
 };
