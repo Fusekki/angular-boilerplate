@@ -3,6 +3,7 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
+import { ActionService } from '../../core/services/action.service';
 
 @Component({
   selector: 'app-form',
@@ -14,7 +15,7 @@ import { MatButton } from '@angular/material/button';
 export class Form {
   formGroup: FormGroup;
 
-  constructor(private readonly fb: FormBuilder) {
+  constructor(private readonly fb: FormBuilder, private actionSvc: ActionService) {
     this.formGroup = this.fb.group({
       name: new FormControl('', Validators.required),
       phone: new FormControl('', Validators.required),
@@ -44,7 +45,7 @@ export class Form {
   }
 
   onSubmit() {
-    console.log(this.formGroup.value);
+    this.actionSvc.triggerFormAction(this.formGroup.value)
   }
 
 }

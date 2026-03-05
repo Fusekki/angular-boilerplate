@@ -40,7 +40,7 @@ export class Header {
   menuClick() {
     const currentMenuAction = this.actionSvc.currentMenuAction();
     console.log('currentMenuAction', currentMenuAction);
-    this.actionSvc.triggerAction(!currentMenuAction)
+    this.actionSvc.triggerMenuAction(!currentMenuAction)
     this.actionSvc.behaviorSubjectA$.next(2);
   }
 }

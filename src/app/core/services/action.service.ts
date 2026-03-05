@@ -1,20 +1,38 @@
 import { Injectable, signal } from '@angular/core';
 import { Observable, of, map, Subject, from, BehaviorSubject, ReplaySubject, AsyncSubject, takeUntil } from 'rxjs';
 
+interface FormContent {
+  name: string,
+  phone: string,
+  email: string;
+}
+
 @Injectable({ providedIn: 'root' })
 
 export class ActionService {
+
+  clearedForm: FormContent = {
+    name: '',
+    phone: '',
+    email: ''
+  }
   // Private writable signal
   private menuActionState = signal<boolean>(false);
+  private formActionState = signal<FormContent>(this.clearedForm);
   behaviorSubjectA$ = new BehaviorSubject(0);
 
   // Public read-only signal for components to consume
   readonly currentMenuAction = this.menuActionState.asReadonly();
 
-  // Method to trigger the action
-  triggerAction(message: boolean) {
+  // Method to trigger the menu action
+  triggerMenuAction(message: boolean) {
     this.menuActionState.set(message);
     console.log(message);
+  }
+
+  triggerFormAction(formContent: FormContent) {
+    this.formActionState.set(formContent);
+    console.log(formContent);
   }
 
   createBehaviorSubject() {
