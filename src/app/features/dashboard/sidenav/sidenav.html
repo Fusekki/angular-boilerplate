@@ -1,0 +1,19 @@
+<mat-drawer-container class="container" autosize>
+  <mat-drawer #drawer class="sidenav" mode="side" [opened]="drawerOpen()">
+    <ul>
+      <li>
+        <a mat-button [routerLink]="['/dice']" routerLinkActive='active'>Dice</a>
+      </li>
+       <mat-divider></mat-divider>
+      <li>
+        <a mat-button [routerLink]="['/form']" routerLinkActive="active">Form</a>
+      </li>
+    </ul>
+
+  </mat-drawer>
+
+  <div class="sidenav-content">
+    <router-outlet />
+  </div>
+
+</mat-drawer-container>

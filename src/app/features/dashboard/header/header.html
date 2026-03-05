@@ -1,5 +1,8 @@
 <div class="sticky top-0 z-50 w-full px-4 py-3 bg-slate-900 text-white shadow-lg">
   <nav class="container mx-auto flex items-center justify-between">
+    <button matButton="filled" id="menu-button" (click)="menuClick()">
+      <mat-icon id="hamburger">menu</mat-icon>
+    </button>
     <a routerLink="/" class="text-xl font-bold tracking-tight">NgrxStore - Dice Accumulator</a>
         <button class="text-white">Total:  <span>{{total$ | async }} </span></button>
         <button (click)="userLogout()">Logout</button>

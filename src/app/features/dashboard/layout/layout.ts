@@ -1,10 +1,10 @@
-import { Component, signal } from '@angular/core';
-import { DiceAccumulator } from '../../components/dice-accumulator/dice-accumulator';
+import { Component } from '@angular/core';
 import { Header } from '../header/header';
+import { Sidenav } from "../sidenav/sidenav";
 
 @Component({
   selector: 'app-layout',
-  imports: [Header],
+  imports: [Header, Sidenav],
   templateUrl: './layout.html',
   styleUrl: './layout.scss',
   standalone: true

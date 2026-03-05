@@ -1,16 +1,15 @@
 import { Component } from '@angular/core';
-import { Layout } from './layout/layout';
-import { DiceAccumulator } from '../components/dice-accumulator/dice-accumulator';
+import { Sidenav } from './sidenav/sidenav';
 
 @Component({
   selector: 'app-dashboard',
-  imports: [Layout, DiceAccumulator],
+  imports: [Sidenav],
   templateUrl: './dashboard.html',
   styleUrl: './dashboard.scss',
 })
 export class Dashboard {
 
   userLogout() {
-    console.log(1)
+    console.log('logged out.');
   }
 }

@@ -3,19 +3,18 @@ import { isPlatformBrowser } from '@angular/common';
 import { Store } from '@ngrx/store';
 import { userLoginAction } from '../../../../states/user/user.actions';
 import { AppState } from '../../../../states/app.state';
-import { Router, ActivatedRoute } from '@angular/router';
-
-declare const google: any;
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-login',
   templateUrl: './login.html',
   styleUrl: './login.scss',
   standalone: true,
-  imports: [], // no NgIf, we use @if
+  imports: [],
 })
 export class Login implements OnInit {
   isBrowser: boolean;
+  google: any;
 
   constructor(@Inject(PLATFORM_ID) platformId: Object, private store: Store<AppState>, private router: Router) {
     this.isBrowser = isPlatformBrowser(platformId);
@@ -54,7 +53,7 @@ export class Login implements OnInit {
     console.log(response);
     if (response.clientId) {
       this.store.dispatch(userLoginAction({ clientId: response.clientId, credential: response.credential }))
-      this.router.navigate(['/dashboard'])
+      this.router.navigate(['/dice'])
     }
   }
 

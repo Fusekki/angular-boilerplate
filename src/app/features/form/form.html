@@ -1,0 +1,26 @@
+<h2>Form</h2>
+
+<div class="container">
+  <div class="form">
+    <form [formGroup]="formGroup">
+      <mat-form-field appearance="fill">
+        <mat-label>Name</mat-label>
+        <input matInput placeholder="name" formControlName="name">
+        <mat-error>{{getErrorMessage('name')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="email" formControlName="email">
+        <mat-error>{{getErrorMessage('email')}}</mat-error>
+      </mat-form-field>
+
+      <mat-form-field appearance="fill">
+        <mat-label>Phone</mat-label>
+        <input matInput placeholder="phone" formControlName="phone">
+        <mat-error>{{getErrorMessage('phone')}}</mat-error>
+      </mat-form-field>
+
+    </form>
+  </div>
+</div>
