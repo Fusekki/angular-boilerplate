@@ -10,7 +10,7 @@ import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MenuActionService } from '../../../core/services/menu.service';
-import { Subscription } from 'rxjs';
+
 @Component({
   selector: 'app-header',
   imports: [LucideAngularModule, AsyncPipe, MatIconModule, MatButtonModule],

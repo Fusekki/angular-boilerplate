@@ -2,10 +2,11 @@ import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatButton } from '@angular/material/button';
 
 @Component({
   selector: 'app-form',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule],
+  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButton],
   templateUrl: './form.html',
   styleUrl: './form.scss',
   standalone: true
@@ -40,6 +41,10 @@ export class Form {
       default:
         return '';
     }
+  }
+
+  onSubmit() {
+    console.log(this.formGroup.value);
   }
 
 }

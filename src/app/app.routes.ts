@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { Login } from './core/login/components/login/login';
-import { Dashboard } from './features/dashboard/dashboard';
 import { DiceAccumulator } from './features/components/dice-accumulator/dice-accumulator';
 import { Layout } from './features/dashboard/layout/layout';
 import { Form } from './features/form/form';

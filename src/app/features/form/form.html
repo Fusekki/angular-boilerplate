@@ -21,6 +21,9 @@
         <mat-error>{{getErrorMessage('phone')}}</mat-error>
       </mat-form-field>
 
+      <div id="btn-row">
+        <button matButton='filled' type="submit" (click)="onSubmit()" [disabled]="!formGroup.valid">Submit</button>
+      </div>
     </form>
   </div>
 </div>
