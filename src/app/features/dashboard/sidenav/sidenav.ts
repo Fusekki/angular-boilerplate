@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { MenuActionService } from '../../../core/services/menu.service';
+import { ActionService } from '../../../core/services/action.service';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
@@ -14,10 +14,10 @@ import { MatDividerModule } from '@angular/material/divider';
 })
 export class Sidenav {
 
-  constructor(private menuService: MenuActionService) {}
+  constructor(private actionSvc: ActionService) {}
 
   get drawerOpen() {
-    return this.menuService.currentAction;
+    return this.actionSvc.currentMenuAction;
   }
 
 }

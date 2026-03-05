@@ -3,17 +3,17 @@ import { Observable, of, map, Subject, from, BehaviorSubject, ReplaySubject, Asy
 
 @Injectable({ providedIn: 'root' })
 
-export class MenuActionService {
+export class ActionService {
   // Private writable signal
-  private actionState = signal<boolean>(false);
+  private menuActionState = signal<boolean>(false);
   behaviorSubjectA$ = new BehaviorSubject(0);
 
   // Public read-only signal for components to consume
-  readonly currentAction = this.actionState.asReadonly();
+  readonly currentMenuAction = this.menuActionState.asReadonly();
 
   // Method to trigger the action
   triggerAction(message: boolean) {
-    this.actionState.set(message);
+    this.menuActionState.set(message);
     console.log(message);
   }
 

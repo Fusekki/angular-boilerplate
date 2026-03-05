@@ -9,7 +9,7 @@ import { reset } from '../../../states/user/user.actions';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { MenuActionService } from '../../../core/services/menu.service';
+import { ActionService } from '../../../core/services/action.service';
 
 @Component({
   selector: 'app-header',
@@ -22,9 +22,9 @@ export class Header {
   protected readonly title = signal('Dice Accumulator');
   total$: Observable<number>;
 
-  constructor(private store: Store<AppState>, private router: Router, private menuAction: MenuActionService) {
+  constructor(private store: Store<AppState>, private router: Router, private actionSvc: ActionService) {
     this.total$ = this.store.select(selectDiceTotal);
-    this.menuAction.createBehaviorSubject();
+    this.actionSvc.createBehaviorSubject();
   }
 
   userLogout() {
@@ -38,9 +38,9 @@ export class Header {
   }
 
   menuClick() {
-    const currentAction = this.menuAction.currentAction();
-    console.log('currentAction', currentAction);
-    this.menuAction.triggerAction(!currentAction)
-    this.menuAction.behaviorSubjectA$.next(2);
+    const currentMenuAction = this.actionSvc.currentMenuAction();
+    console.log('currentMenuAction', currentMenuAction);
+    this.actionSvc.triggerAction(!currentMenuAction)
+    this.actionSvc.behaviorSubjectA$.next(2);
   }
 }
