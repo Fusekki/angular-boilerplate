@@ -1,8 +1,8 @@
 import { Component, Inject, OnInit, PLATFORM_ID} from '@angular/core';
 import { isPlatformBrowser } from '@angular/common';
 import { Store } from '@ngrx/store';
-import { userLoginAction } from '../../../../states/user/user.actions';
-import { AppState } from '../../../../states/app.state';
+import { userLoginAction } from '../../shared/states/user/user.actions';
+import { AppState } from '../../shared/states/app.state';
 import { Router } from '@angular/router';
 
 @Component({

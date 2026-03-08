@@ -1,8 +1,8 @@
 import { Routes } from '@angular/router';
-import { Login } from './core/login/components/login/login';
-import { DiceAccumulator } from './features/components/dice-accumulator/dice-accumulator';
-import { Layout } from './features/dashboard/layout/layout';
-import { Form } from './features/form/form';
+import { Login } from './features/login/login';
+import { DiceAccumulator } from './features/dice-accumulator/dice-accumulator';
+import { Layout } from './core/layout/layout/layout';
+import { ExampleForm } from './features/example-form/example-form';
 
 export const routes: Routes = [
   { path: '', component: Login, pathMatch: 'full' },
@@ -10,7 +10,7 @@ export const routes: Routes = [
   { path: '', component: Layout,
     children: [
       { path: 'dice', component: DiceAccumulator },
-      { path: 'form', component: Form },
+      { path: 'form', component: ExampleForm },
     ]
   }
 ];

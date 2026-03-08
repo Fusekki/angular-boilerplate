@@ -2,14 +2,14 @@ import { Component, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LucideAngularModule, LogOut, User, ShoppingCart } from 'lucide-angular';
 import { Observable } from 'rxjs';
-import { AppState } from '../../../states/app.state';
-import { selectDiceTotal } from '../../../states/dice-total/dice-total.selector';
+import { AppState } from '../../../shared/states/app.state';
+import { selectDiceTotal } from '../../../shared/states/dice-total/dice-total.selector';
 import { AsyncPipe } from '@angular/common';
-import { reset } from '../../../states/user/user.actions';
+import { reset } from '../../../shared/states/user/user.actions';
 import { Router } from '@angular/router';
 import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
-import { ActionService } from '../../../core/services/action.service';
+import { ActionService } from '../../../shared/services/action.service';
 
 @Component({
   selector: 'app-header',

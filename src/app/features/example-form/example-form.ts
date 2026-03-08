@@ -3,16 +3,16 @@ import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } 
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatButton } from '@angular/material/button';
-import { ActionService } from '../../core/services/action.service';
+import { ActionService } from '../../shared/services/action.service';
 
 @Component({
-  selector: 'app-form',
+  selector: 'app-example-form',
   imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButton],
-  templateUrl: './form.html',
-  styleUrl: './form.scss',
+  templateUrl: './example-form.html',
+  styleUrl: './example-form.scss',
   standalone: true
 })
-export class Form {
+export class ExampleForm {
   formGroup: FormGroup;
 
   constructor(private readonly fb: FormBuilder, private actionSvc: ActionService) {

@@ -2,7 +2,7 @@ import { Component } from '@angular/core';
 import { RouterModule } from '@angular/router';
 import { MatButtonModule } from '@angular/material/button';
 import { MatSidenavModule } from '@angular/material/sidenav';
-import { ActionService } from '../../../core/services/action.service';
+import { ActionService } from '../../../shared/services/action.service';
 import { MatDividerModule } from '@angular/material/divider';
 
 @Component({
