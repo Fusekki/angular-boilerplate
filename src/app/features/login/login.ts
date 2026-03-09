@@ -21,6 +21,7 @@ export class Login implements OnInit {
   }
 
   ngOnInit(): void {
+
     if (!this.isBrowser) return;
 
     const w = window as any;

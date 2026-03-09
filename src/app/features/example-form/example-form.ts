@@ -1,13 +1,11 @@
 import { Component } from '@angular/core';
 import { ReactiveFormsModule, FormGroup, FormBuilder, Validators, FormControl } from '@angular/forms';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatInputModule } from '@angular/material/input';
-import { MatButton } from '@angular/material/button';
 import { ActionService } from '../../shared/services/action.service';
+import { MaterialModule } from '../../shared/material.module';
 
 @Component({
   selector: 'app-example-form',
-  imports: [ReactiveFormsModule, MatFormFieldModule, MatInputModule, MatButton],
+  imports: [ReactiveFormsModule, MaterialModule],
   templateUrl: './example-form.html',
   styleUrl: './example-form.scss',
   standalone: true

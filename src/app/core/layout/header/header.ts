@@ -1,19 +1,18 @@
 import { Component, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
-import { LucideAngularModule, LogOut, User, ShoppingCart } from 'lucide-angular';
+import { LogOut, User, ShoppingCart } from 'lucide-angular';
 import { Observable } from 'rxjs';
 import { AppState } from '../../../shared/states/app.state';
 import { selectDiceTotal } from '../../../shared/states/dice-total/dice-total.selector';
 import { AsyncPipe } from '@angular/common';
 import { reset } from '../../../shared/states/user/user.actions';
 import { Router } from '@angular/router';
-import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
 import { ActionService } from '../../../shared/services/action.service';
+import { MaterialModule } from '../../../shared/material.module';
 
 @Component({
   selector: 'app-header',
-  imports: [LucideAngularModule, AsyncPipe, MatIconModule, MatButtonModule],
+  imports: [AsyncPipe, MaterialModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
