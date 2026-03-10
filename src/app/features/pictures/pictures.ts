@@ -3,6 +3,7 @@ import { PictureService } from './services/picture.service';
 import { MaterialModule } from '../../shared/material.module';
 import { PictureCards } from "./components/picture-cards/picture-cards";
 import { PictureList } from "./components/picture-list/picture-list";
+import { ActionService } from '../../shared/services/action.service';
 
 @Component({
   selector: 'app-pictures',
@@ -15,9 +16,13 @@ export class Pictures {
   @Output() pictures: any = [];
   @Output() filteredPictures: any = [];
 
-  constructor(private picService: PictureService ) {}
+  constructor(private picService: PictureService, private actionSvc: ActionService) {
+  }
 
   ngOnInit() {
+    queueMicrotask(() => {
+      this.actionSvc.triggerTitleAction('Pictures');
+    });
     this.loadPictures();
   }
 

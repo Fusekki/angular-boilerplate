@@ -20,7 +20,12 @@ export class DiceAccumulator {
   constructor(private store: Store<AppState>, private actionSvc: ActionService) {
     this.total$ = this.store.select(selectDiceTotal)
     this.lastRoll$ = this.store.select(selectRandomNumber)
-    this.actionSvc.triggerTitleAction('NgrxStore - Dice Accumulator')
+  }
+
+  ngOnInit() {
+    queueMicrotask(() => {
+      this.actionSvc.triggerTitleAction('NgrxStore - Dice Accumulator');
+    });
   }
 
   d100() {

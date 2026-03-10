@@ -4,7 +4,6 @@ import { LogOut, User, ShoppingCart } from 'lucide-angular';
 import { Observable } from 'rxjs';
 import { AppState } from '../../../shared/states/app.state';
 import { selectDiceTotal } from '../../../shared/states/dice-total/dice-total.selector';
-import { AsyncPipe } from '@angular/common';
 import { reset } from '../../../shared/states/user/user.actions';
 import { Router } from '@angular/router';
 import { ActionService } from '../../../shared/services/action.service';
@@ -12,12 +11,11 @@ import { MaterialModule } from '../../../shared/material.module';
 
 @Component({
   selector: 'app-header',
-  imports: [AsyncPipe, MaterialModule],
+  imports: [MaterialModule],
   templateUrl: './header.html',
   styleUrl: './header.scss',
 })
 export class Header {
-  protected readonly icons = { LogOut, User, ShoppingCart };
   protected readonly title = signal('Dice Accumulator');
   total$: Observable<number>;
   currentTitleAction: string = '';

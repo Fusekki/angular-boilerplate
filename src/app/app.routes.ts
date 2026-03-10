@@ -13,6 +13,9 @@ export const routes: Routes = [
       { path: 'dice', component: DiceAccumulator },
       { path: 'example-form', component: ExampleForm },
       { path: 'pictures', component: Pictures },
+      { path: 'shop',
+        loadChildren: () => import('./features/shop/shop-module').then(m => m.ShopModule)
+      }
     ]
   }
 ];
