@@ -1,10 +1,11 @@
-import { Component } from '@angular/core';
+import { Component, effect } from '@angular/core';
 import { AppState } from '../../shared/states/app.state';
 import { Observable } from 'rxjs';
 import { selectDiceTotal, selectRandomNumber } from '../../shared/states/dice-total/dice-total.selector';
 import { Store } from '@ngrx/store';
 import { AsyncPipe } from '@angular/common';
 import { d100, d12, d20, d4, d6, d8, reset } from '../../shared/states/dice-total/dice-total.actions'
+import { ActionService } from '../../shared/services/action.service';
 
 @Component({
   selector: 'app-dice-accumulator',
@@ -16,9 +17,10 @@ export class DiceAccumulator {
   total$: Observable<number>;
   lastRoll$: Observable<number | null>;
 
-  constructor(private store: Store<AppState>) {
+  constructor(private store: Store<AppState>, private actionSvc: ActionService) {
     this.total$ = this.store.select(selectDiceTotal)
     this.lastRoll$ = this.store.select(selectRandomNumber)
+    this.actionSvc.triggerTitleAction('NgrxStore - Dice Accumulator')
   }
 
   d100() {

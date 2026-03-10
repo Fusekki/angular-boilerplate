@@ -1,25 +1,43 @@
-import { Component } from '@angular/core';
+import { Component, Output } from '@angular/core';
 import { PictureService } from './services/picture.service';
 import { MaterialModule } from '../../shared/material.module';
+import { PictureCards } from "./components/picture-cards/picture-cards";
+import { PictureList } from "./components/picture-list/picture-list";
 
 @Component({
   selector: 'app-pictures',
-  imports: [MaterialModule],
+  imports: [MaterialModule, PictureCards, PictureList],
   templateUrl: './pictures.html',
   styleUrl: './pictures.scss',
   standalone: true
 })
 export class Pictures {
-  pictures: any = [];
+  @Output() pictures: any = [];
+  @Output() filteredPictures: any = [];
 
   constructor(private picService: PictureService ) {}
 
   ngOnInit() {
-    console.log('Environment Check:', import.meta.env);
     this.loadPictures();
   }
 
   loadPictures() {
-    this.picService.getPictureList().subscribe(p => this.pictures = p);
+    this.picService.getPictureList().subscribe(p => {
+      this.pictures = p;
+      this.filteredPictures = this.pictures;
+      console.log('pictures', p);
+    });
+  }
+
+  onInputEvent(e: Event): void {
+    console.log('entered', (event?.target as HTMLInputElement).value);
+    const entered = (event?.target as HTMLInputElement).value;
+    if (!entered) {
+      this.filteredPictures = this.pictures;
+    } else {
+      const filtered = this.filteredPictures.filter((f: any) => f.id.toLowerCase().includes(entered.toLowerCase()))
+      this.filteredPictures = filtered;
+      console.log('filtered', this.filteredPictures)
+    }
   }
 }

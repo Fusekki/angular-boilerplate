@@ -19,10 +19,13 @@ export class ActionService {
   // Private writable signal
   private menuActionState = signal<boolean>(false);
   private formActionState = signal<FormContent>(this.clearedForm);
+  private titleActionState = signal<string>('');
   behaviorSubjectA$ = new BehaviorSubject(0);
 
   // Public read-only signal for components to consume
   readonly currentMenuAction = this.menuActionState.asReadonly();
+
+  readonly currentTitleAction = this.titleActionState.asReadonly();
 
   // Method to trigger the menu action
   triggerMenuAction(message: boolean) {
@@ -33,6 +36,11 @@ export class ActionService {
   triggerFormAction(formContent: FormContent) {
     this.formActionState.set(formContent);
     console.log(formContent);
+  }
+
+  triggerTitleAction(title: string) {
+    this.titleActionState.set(title);
+    console.log(title);
   }
 
   createBehaviorSubject() {

@@ -1,0 +1,15 @@
+.container {
+  min-width: 600px;
+}
+
+.example-card {
+  max-width: 400px;
+ }
+
+ .example-card:not(:last-of-type) {
+  margin-bottom: 2rem;
+}
+
+ img {
+  width: 800px;
+}

@@ -3,8 +3,11 @@
     <button matButton="filled" id="menu-button" (click)="menuClick()">
       <mat-icon id="hamburger">menu</mat-icon>
     </button>
-    <a routerLink="/" class="text-xl font-bold tracking-tight">NgrxStore - Dice Accumulator</a>
-        <button class="text-white">Total:  <span>{{total$ | async }} </span></button>
-        <button (click)="userLogout()">Logout</button>
+      <a routerLink="/" class="text-xl font-bold tracking-tight">{{currentTitleAction}}</a>
+      @if(currentTitleAction.toLowerCase().includes('dice')) {
+        <span class="text-white">Total:  {{total$ | async }} </span>
+      }
+      <button (click)="userLogout()">Logout</button>
+
   </nav>
 </div>

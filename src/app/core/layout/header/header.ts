@@ -1,4 +1,4 @@
-import { Component, signal } from '@angular/core';
+import { Component, effect, signal } from '@angular/core';
 import { Store } from '@ngrx/store';
 import { LogOut, User, ShoppingCart } from 'lucide-angular';
 import { Observable } from 'rxjs';
@@ -20,10 +20,15 @@ export class Header {
   protected readonly icons = { LogOut, User, ShoppingCart };
   protected readonly title = signal('Dice Accumulator');
   total$: Observable<number>;
+  currentTitleAction: string = '';
 
   constructor(private store: Store<AppState>, private router: Router, private actionSvc: ActionService) {
     this.total$ = this.store.select(selectDiceTotal);
     this.actionSvc.createBehaviorSubject();
+    effect(() => {
+      this.currentTitleAction = this.actionSvc.currentTitleAction();
+      console.log('currentTitleAction', this.currentTitleAction);
+    })
   }
 
   userLogout() {
