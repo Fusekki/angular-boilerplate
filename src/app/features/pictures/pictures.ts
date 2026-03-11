@@ -1,4 +1,4 @@
-import { Component, Output } from '@angular/core';
+import { Component, Output, EventEmitter } from '@angular/core';
 import { PictureService } from './services/picture.service';
 import { MaterialModule } from '../../shared/material.module';
 import { PictureCards } from "./components/picture-cards/picture-cards";
@@ -44,5 +44,9 @@ export class Pictures {
       this.filteredPictures = filtered;
       console.log('filtered', this.filteredPictures)
     }
+  }
+
+  handleClick(e: Event): void {
+    console.log(`ID ${e} clicked.`);
   }
 }

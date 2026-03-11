@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { MaterialModule } from '../../../../shared/material.module';
 
 @Component({
@@ -11,12 +11,7 @@ import { MaterialModule } from '../../../../shared/material.module';
 
 export class PictureCards {
 
-  _internalPictures: any = [];
-
-  @Input()
-  set pictures(value: any) {
-    console.log('Value changed to:', value);
-    this._internalPictures = value;
-  }
+  @Input() pictures: any = []
+  @Output() onClick = new EventEmitter<any>();
 
 }

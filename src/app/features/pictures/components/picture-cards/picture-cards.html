@@ -1,12 +1,16 @@
 <div class="container flex flex-col items-center">
 
-  @for (pic of _internalPictures; track $index) {
+  @for (pic of pictures; track $index) {
     <mat-card class="example-card" appearance="outlined">
       <mat-card-header>
         <div mat-card-avatar class="example-header-image"></div>
         <mat-card-title>{{pic.id}}</mat-card-title>
       </mat-card-header>
-      <img mat-card-image [src]="pic.urls.regular" [alt]="pic.alt_description">
+      <img mat-card-image
+        [src]="pic.urls.regular"
+        [alt]="pic.alt_description"
+        (click)="onClick.emit(pic.id)"
+      />
       <mat-card-content>
         <p>
           {{pic.description}}

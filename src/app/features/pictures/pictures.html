@@ -5,5 +5,8 @@
     </mat-form-field>
     <app-picture-list [pictures]="filteredPictures" />
   </div>
-<app-picture-cards [pictures]="filteredPictures"/>
+<app-picture-cards
+  [pictures]="filteredPictures"
+  (onClick)="handleClick($event)"
+/>
 </div>
