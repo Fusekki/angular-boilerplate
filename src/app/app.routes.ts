@@ -13,8 +13,8 @@ export const routes: Routes = [
       { path: 'dice', component: DiceAccumulator },
       { path: 'example-form', component: ExampleForm },
       { path: 'pictures', component: Pictures },
-      { path: 'shop',
-        loadChildren: () => import('./features/shop/shop-module').then(m => m.ShopModule)
+      { path: 'shopping-list',
+        loadChildren: () => import('./features/shopping-list/shopping-list-module').then(m => m.ShoppingListModule)
       }
     ]
   }

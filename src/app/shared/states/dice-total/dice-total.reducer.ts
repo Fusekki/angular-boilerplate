@@ -1,5 +1,5 @@
 import { createReducer, on } from "@ngrx/store";
-import { d100, d12, d20, d4, d6, d8, reset } from "./dice-total.actions";
+import { d100, d12, d20, d4, d6, d8, d2, reset } from "./dice-total.actions";
 
 export interface DiceTotalState {
   total: number
@@ -11,6 +11,7 @@ export const initialDiceTotalState: DiceTotalState = {
   lastRoll: null
 }
 
+// reducers are linked to their actions here. reducers are linked to selectors in the app.config.ts (provideState entries)
 export const diceTotalReducer = createReducer(
   initialDiceTotalState,
   on(d100, state => {
@@ -60,6 +61,14 @@ export const diceTotalReducer = createReducer(
       total: state.total + newRandomNumber,
       lastRoll: newRandomNumber
     };
+  }),
+  on(d2, state => {
+    const newRandomNumber = Math.floor(Math.random() * 2) + 1;
+    return {
+      ...state,
+      total: state.total + newRandomNumber,
+      lastRoll: newRandomNumber
+    }
   }),
   on(reset, state => {
     return {

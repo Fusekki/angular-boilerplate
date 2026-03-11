@@ -1,10 +1,10 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Routes, RouterModule } from '@angular/router';
-import { Shop } from './shop';
+import { ShoppingList } from './shopping-list';
 
 const routes: Routes = [
-  { path: '', component: Shop }
+  { path: '', component: ShoppingList }
 ]
 
 @NgModule({
@@ -15,4 +15,4 @@ const routes: Routes = [
   ]
 })
 
-export class ShopModule { }
+export class ShoppingListModule { }
